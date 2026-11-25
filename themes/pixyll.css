@@ -1,0 +1,267 @@
+/* ============================================================
+   Pixyll Theme for InkNote — Faithful to Official Typora pixyll.css
+   Usage: Settings -> Appearance -> Custom CSS -> select pixyll.css
+   ============================================================ */
+
+/* High-specificity selectors beat InkNote's built-in html[data-md-theme="..."] rules */
+html[data-md-theme] .editor-host.editor-host {
+  --md-accent: #463f5c;
+  --md-heading-color: #333333;
+  --md-heading-font: "Lato", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --md-muted: #7a7a7a;
+  --md-panel-bg: #f8f8f8;
+  --md-panel-border: #7a7a7a;
+  --md-quote-bg: transparent;
+  --md-quote-border: #7a7a7a;
+  --editor-quote-bar: 5px;
+  --editor-block-indent: 18px;
+  --md-code-bg: #ffffff;
+  --md-code-fg: #555555;
+  --md-code-keyword: #463f5c;
+  --md-code-string: #3b6e52;
+  --md-code-number: #7a4b2a;
+  --md-code-comment: #8c8c8c;
+  --md-component-radius: 0px;
+  background: #ffffff;
+}
+
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host {
+  --md-accent: #a6b8e0;
+  --md-heading-color: #f2f4f7;
+  --md-muted: #9aa1ad;
+  --md-panel-bg: #25282e;
+  --md-panel-border: #555c68;
+  --md-quote-border: #7d8594;
+  --md-code-bg: #23262c;
+  --md-code-fg: #d5dae2;
+  --md-code-keyword: #c5a3e0;
+  --md-code-string: #90c9a0;
+  --md-code-number: #e0b084;
+  --md-code-comment: #7f8794;
+  background: #1e2024;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-editor {
+  background: #ffffff;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-editor {
+  background: #1e2024;
+}
+
+/* Generous centered Typora Pixyll reading column (wide & balanced on desktop displays) */
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  max-width: min(1320px, 100%);
+  padding: 36px 0 96px;
+  color: #333333;
+  caret-color: #333333;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  color: #dde1e7;
+  caret-color: #dde1e7;
+}
+
+/* Editorial serif prose (Merriweather / Songti) */
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
+  font-family: "Merriweather", "PT Serif", Georgia, "Times New Roman", "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: clamp(16px, calc(var(--editor-render-font-size, 15px) * 1.15), 24px);
+  line-height: 1.8;
+}
+
+/* Commanding bold sans-serif headings (Lato / PingFang / YaHei) */
+html[data-md-theme] .editor-host.editor-host .cm-md-h1,
+html[data-md-theme] .editor-host.editor-host .cm-md-h2,
+html[data-md-theme] .editor-host.editor-host .cm-md-h3,
+html[data-md-theme] .editor-host.editor-host .cm-md-h4,
+html[data-md-theme] .editor-host.editor-host .cm-md-h5,
+html[data-md-theme] .editor-host.editor-host .cm-md-h6 {
+  font-family: "Lato", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-weight: 700;
+  color: #333333;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h1,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h2,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h3,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h4,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h5,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h6 {
+  color: #f2f4f7;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-md-h1 {
+  font-size: 2.65em;
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h2 {
+  font-size: 1.72em;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h3 {
+  font-size: 1.35em;
+  font-weight: 700;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h4 {
+  font-size: 1.12em;
+  font-weight: 700;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1 {
+  padding-top: 0.9em;
+  padding-bottom: 0.42em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-2 {
+  padding-top: 1.15em;
+  padding-bottom: 0.3em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-3 {
+  padding-top: 0.9em;
+  padding-bottom: 0.2em;
+}
+
+/* Links: official Pixyll #463F5C underlined */
+html[data-md-theme] .editor-host.editor-host .cm-md-link,
+html[data-md-theme] .editor-host.editor-host .md-table-link {
+  color: #463f5c;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-link,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-link {
+  color: #a6b8e0;
+}
+
+/* Inline code (both body AND table cells): clean borderless transparent #7a7a7a monospace */
+html[data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  color: #7a7a7a;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0 2px;
+  font-size: 0.9em;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  color: #a8b1bf;
+  background: transparent;
+}
+
+/* Official Pixyll Table:
+   - NO outer border, NO vertical lines, NO zebra stripes
+   - NO top line above thead, NO bottom line below last row
+   - 2px solid #333 below thead th, 1px solid #8c8c8c between body rows */
+html[data-md-theme] .editor-host.editor-host .md-table-body {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget table {
+  border-collapse: collapse;
+  border: 0;
+  font-size: 0.96em;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: transparent;
+  color: #333333;
+  font-family: "Lato", "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: 700;
+  vertical-align: bottom;
+  border: 0;
+  border-top: 0;
+  border-bottom: 2px solid #333333;
+  padding: 12px 12px 10px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  color: #f2f4f7;
+  border-bottom-color: #cfd5df;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid #9a9a9a;
+  border-bottom: 0;
+  padding: 12px;
+  line-height: 1.5;
+  vertical-align: top;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  border-top-color: #4d535e;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:first-child td {
+  border-top: 0;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td {
+  background: transparent;
+}
+
+/* Official Pixyll Blockquote: 5px solid #7a7a7a, italic, transparent bg */
+html[data-md-theme] .editor-host.editor-host .cm-line.md-blockquote {
+  color: #555555;
+  font-style: italic;
+  background: transparent;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-blockquote {
+  color: #adb4c0;
+}
+
+/* Official Pixyll Lists: solid dot level 1, hollow circle level 2+ */
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item {
+  padding-top: 0.14em;
+  padding-bottom: 0.14em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-bullet-list:not(.md-task-item)::before,
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-ordered-list:not(.md-task-item)::before {
+  color: #333333;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-bullet-list:not(.md-task-item)::before,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-ordered-list:not(.md-task-item)::before {
+  color: #cfd5df;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-bullet-list[style*="--md-list-marker-left"]:not(.md-task-item)::before {
+  content: "◦";
+  font-weight: 400;
+}
+
+/* Official Pixyll circular task checkboxes */
+html[data-md-theme] .editor-host.editor-host .cm-line.md-task-item::before {
+  border-radius: 50%;
+  border: 1.5px solid #555555;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-task-done::before {
+  background: #333333;
+  border-color: #333333;
+}
+
+/* Official Pixyll Code Block: crisp 1px #7a7a7a frame, square corners */
+html[data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #ffffff;
+  border: 1px solid #7a7a7a;
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #23262c;
+  border: 1px solid #555c68;
+}
+html[data-md-theme] .editor-host.editor-host .md-codeblock-gutter {
+  border-right: 1px solid #e2e2e2;
+  padding: 34px 10px 14px 14px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-gutter {
+  border-right: 1px solid #3a404a;
+}
+
+html[data-md-theme] .editor-host.editor-host .md-hr-line {
+  background: #cccccc;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-hr-line {
+  background: #424852;
+}

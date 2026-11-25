@@ -19,11 +19,16 @@ describe("markdownToBodyHtml", () => {
   it("exports the selected Markdown theme in both color modes", async () => {
     const light = await markdownToHtml("# Vue", "light", "zh", null, false, "vue");
     const dark = await markdownToHtml("# Minimal", "dark", "zh", null, false, "minimal");
+    const pixyll = await markdownToHtml("# Pixyll", "light", "zh", null, false, "pixyll");
+    const sepia = await markdownToHtml("# Sepia", "light", "zh", null, false, "sepia");
 
     expect(light).toContain("--doc-panel:#f3f5f7");
     expect(light).toContain("--doc-accent:#42b883");
     expect(dark).toContain("--doc-panel:#242727");
     expect(dark).toContain("--doc-accent:#9aacaa");
+    expect(pixyll).toContain("Merriweather");
+    expect(pixyll).toContain("border-bottom:2px solid #333333");
+    expect(sepia).toContain("--doc-bg:#faf6ee");
   });
 
   it("preserves details and safe images and links across the HTML export", async () => {

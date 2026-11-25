@@ -1,0 +1,136 @@
+/* ============================================================
+   Warm Paper (暖纸笺 / Sepia) Theme for InkNote
+   Usage: Settings -> Appearance -> Custom CSS -> select warm-paper.css
+   ============================================================ */
+
+html[data-md-theme] .editor-host.editor-host {
+  --md-accent: #a84b31;
+  --md-heading-color: #2b2118;
+  --md-heading-font: "Georgia", "Songti SC", "Noto Serif SC", "SimSun", serif;
+  --md-muted: #7c6d5c;
+  --md-panel-bg: #f1eadc;
+  --md-panel-border: #dfd5c3;
+  --md-quote-bg: #f4eee1;
+  --md-quote-border: #c28b5a;
+  --editor-quote-bar: 3.5px;
+  --md-code-bg: #f2ebdd;
+  --md-code-fg: #3b3127;
+  --md-code-keyword: #a84b31;
+  --md-code-string: #4d7041;
+  --md-code-number: #9c6615;
+  --md-code-comment: #8f806e;
+  --md-component-radius: 4px;
+  background: #faf6ee;
+}
+
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host {
+  --md-accent: #d9915b;
+  --md-heading-color: #f4ece0;
+  --md-muted: #a69989;
+  --md-panel-bg: #2b2621;
+  --md-panel-border: #403830;
+  --md-quote-bg: #28231e;
+  --md-quote-border: #b87c4b;
+  --md-code-bg: #29241f;
+  --md-code-fg: #e5dcd0;
+  --md-code-keyword: #e68c6c;
+  --md-code-string: #9cc48a;
+  --md-code-number: #e0b065;
+  --md-code-comment: #8a7e70;
+  background: #221e1a;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-editor { background: #faf6ee; }
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-editor { background: #221e1a; }
+
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  max-width: min(1180px, 100%);
+  padding: 40px 0 96px;
+  color: #3a3026;
+  caret-color: #3a3026;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  color: #e5dcd0;
+  caret-color: #e5dcd0;
+}
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
+  font-family: "Georgia", "Charter", "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: clamp(15.5px, calc(var(--editor-render-font-size, 15px) * 1.08), 22px);
+  line-height: 1.85;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 0.36em;
+  background: linear-gradient(90deg, var(--md-quote-border), var(--md-panel-border) 55%, transparent);
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-blockquote { color: #665848; font-style: italic; background: transparent; }
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-blockquote { color: #bdb0a0; }
+
+html[data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #efe7d8;
+  color: #7e3622;
+  border: 0;
+  border-radius: 3px;
+  padding: 1px 4px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #302a24;
+  color: #eab282;
+}
+
+/* Warm editorial horizontal-rule table */
+html[data-md-theme] .editor-host.editor-host .md-table-body {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: #f1eadc;
+  color: #2b2118;
+  font-weight: 700;
+  border: 0;
+  border-top: 1.5px solid #c28b5a;
+  border-bottom: 1.5px solid #c28b5a;
+  padding: 9px 12px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: #2b2621;
+  color: #f4ece0;
+  border-color: #b87c4b;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #dfd5c3;
+  padding: 9px 12px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  border-bottom-color: #3d352d;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td {
+  background: transparent;
+}
+html[data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #f2ebdd;
+  border: 1px solid #dfd5c3;
+  border-radius: 4px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #29241f;
+  border-color: #403830;
+}
+html[data-md-theme] .editor-host.editor-host .md-hr-line {
+  background: linear-gradient(90deg, transparent, #d5c7b2 18%, #d5c7b2 82%, transparent);
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-hr-line {
+  background: linear-gradient(90deg, transparent, #4a4036 18%, #4a4036 82%, transparent);
+}

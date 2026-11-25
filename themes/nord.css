@@ -1,0 +1,127 @@
+/* ============================================================
+   Nord (北欧极光) Theme for InkNote
+   Usage: Settings -> Appearance -> Custom CSS -> select nord.css
+   ============================================================ */
+
+html[data-md-theme] .editor-host.editor-host {
+  --md-accent: #5e81ac;
+  --md-heading-color: #2e3440;
+  --md-heading-font: "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --md-muted: #616e88;
+  --md-panel-bg: #eceff4;
+  --md-panel-border: #d8dee9;
+  --md-quote-bg: #edf1f7;
+  --md-quote-border: #81a1c1;
+  --editor-quote-bar: 3.5px;
+  --md-code-bg: #eceff4;
+  --md-code-fg: #2e3440;
+  --md-code-keyword: #5e81ac;
+  --md-code-string: #6c8e68;
+  --md-code-number: #b48ead;
+  --md-code-comment: #7b88a1;
+  --md-component-radius: 6px;
+  background: #f6f8fb;
+}
+
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host {
+  --md-accent: #88c0d0;
+  --md-heading-color: #88c0d0;
+  --md-muted: #9aa7bd;
+  --md-panel-bg: #3b4252;
+  --md-panel-border: #434c5e;
+  --md-quote-bg: #353c4a;
+  --md-quote-border: #81a1c1;
+  --md-code-bg: #272c36;
+  --md-code-fg: #e5e9f0;
+  --md-code-keyword: #81a1c1;
+  --md-code-string: #a3be8c;
+  --md-code-number: #b48ead;
+  --md-code-comment: #6c7a96;
+  background: #2e3440;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-editor { background: #f6f8fb; }
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-editor { background: #2e3440; }
+
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  max-width: min(1260px, 100%);
+  padding: 36px 0 96px;
+  color: #2e3440;
+  caret-color: #2e3440;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  color: #eceff4;
+  caret-color: #eceff4;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-line.md-blockquote {
+  color: #4c566a;
+  background: linear-gradient(90deg, transparent var(--editor-padding-x), var(--md-quote-bg) var(--editor-padding-x), var(--md-quote-bg) calc(100% - var(--editor-padding-x)), transparent calc(100% - var(--editor-padding-x)));
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-blockquote { color: #c2cad8; }
+
+html[data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #e5e9f0;
+  color: #434c5e;
+  border: 0;
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #3b4252;
+  color: #8fbcbb;
+}
+
+html[data-md-theme] .editor-host.editor-host .md-table-body {
+  border: 1px solid #d8dee9;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: none;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-body {
+  border-color: #434c5e;
+  background: #2e3440;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: #e5e9f0;
+  color: #2e3440;
+  font-weight: 650;
+  border-right: 1px solid #d8dee9;
+  border-bottom: 1px solid #cbd3e0;
+  padding: 8px 12px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: #3b4252;
+  color: #88c0d0;
+  border-color: #434c5e;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  border-right: 1px solid #e5e9f0;
+  border-bottom: 1px solid #e5e9f0;
+  padding: 8px 12px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  border-color: #3b4252;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget th:last-child,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td:last-child { border-right: 0; }
+html[data-md-theme] .editor-host.editor-host .md-table-widget tr:last-child td { border-bottom: 0; }
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td { background: #f3f6fa; }
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td { background: #333a47; }
+
+html[data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #eceff4;
+  border: 1px solid #d8dee9;
+  border-radius: 6px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #272c36;
+  border-color: #434c5e;
+}
+html[data-md-theme] .editor-host.editor-host .md-hr-line { background: #d8dee9; }
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-hr-line { background: #434c5e; }

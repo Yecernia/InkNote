@@ -1,0 +1,130 @@
+/* ============================================================
+   Academic (学术三线 / LaTeX Booktabs) Theme for InkNote
+   Usage: Settings -> Appearance -> Custom CSS -> select academic.css
+   ============================================================ */
+
+html[data-md-theme] .editor-host.editor-host {
+  --md-accent: #1d4e89;
+  --md-heading-color: #111111;
+  --md-heading-font: "STIX Two Text", "Cambria", "Georgia", "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  --md-muted: #595959;
+  --md-panel-bg: #f7f7f5;
+  --md-panel-border: #d9d9d5;
+  --md-quote-bg: transparent;
+  --md-quote-border: #333333;
+  --editor-quote-bar: 2.5px;
+  --md-code-bg: #f8f8f6;
+  --md-code-fg: #1f1f1f;
+  --md-code-keyword: #1d4e89;
+  --md-code-string: #2c6e49;
+  --md-code-number: #7f2b2b;
+  --md-code-comment: #767676;
+  --md-component-radius: 0px;
+  background: #ffffff;
+}
+
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host {
+  --md-accent: #7aa7dc;
+  --md-heading-color: #f4f4f0;
+  --md-muted: #9e9e99;
+  --md-panel-bg: #232427;
+  --md-panel-border: #3a3b40;
+  --md-quote-border: #9a9a95;
+  --md-code-bg: #222326;
+  --md-code-fg: #e2e2df;
+  --md-code-keyword: #7aa7dc;
+  --md-code-string: #8cc49f;
+  --md-code-number: #e08d8d;
+  --md-code-comment: #858580;
+  background: #1a1b1d;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-editor { background: #ffffff; }
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-editor { background: #1a1b1d; }
+
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  max-width: min(1180px, 100%);
+  padding: 40px 0 96px;
+  color: #1a1a1a;
+  caret-color: #1a1a1a;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  color: #e2e2df;
+  caret-color: #e2e2df;
+}
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
+  font-family: "STIX Two Text", "Cambria", "Georgia", "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: clamp(15.5px, calc(var(--editor-render-font-size, 15px) * 1.07), 22px);
+  line-height: 1.85;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-md-h1 { font-size: 2.05em; font-weight: 700; letter-spacing: 0.01em; }
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1 { text-align: center; padding-top: 1.25em; padding-bottom: 0.35em; }
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 0.42em;
+  background: var(--md-panel-border);
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-blockquote { color: #444444; font-style: italic; background: transparent; }
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-blockquote { color: #b5b5b0; }
+
+html[data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #f2f2ef;
+  color: #1f1f1f;
+  border: 0;
+  border-radius: 2px;
+  padding: 1px 4px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #27282c;
+  color: #e8e8e4;
+}
+
+/* True LaTeX Booktabs Three-Line Table (三线表):
+   ONLY 3 horizontal rules total: 2px top, 1px under thead, 2px bottom. ZERO vertical lines, ZERO row lines, ZERO zebra */
+html[data-md-theme] .editor-host.editor-host .md-table-body {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget table {
+  border-collapse: collapse;
+  border-top: 2px solid var(--md-heading-color);
+  border-bottom: 2px solid var(--md-heading-color);
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: transparent;
+  color: var(--md-heading-color);
+  font-weight: 700;
+  border: 0;
+  border-bottom: 1px solid var(--md-heading-color);
+  padding: 9px 14px;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  border: 0;
+  padding: 7px 14px;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td {
+  background: transparent;
+}
+
+html[data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #f8f8f6;
+  border: 1px solid #d9d9d5;
+  border-radius: 0;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #222326;
+  border-color: #3a3b40;
+}
+html[data-md-theme] .editor-host.editor-host .md-hr-line { background: #444444; }
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-hr-line { background: #6a6a66; }

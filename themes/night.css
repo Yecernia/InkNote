@@ -1,0 +1,165 @@
+/* ============================================================
+   Night Theme for InkNote — Faithful to Official Typora night.css
+   Usage: Settings -> Appearance -> Custom CSS -> select night.css
+   ============================================================ */
+
+html[data-md-theme] .editor-host.editor-host {
+  color-scheme: dark;
+  --bg-editor: #363b40;
+  --fg: #b8bfc6;
+  --fg-muted: #9da2a6;
+  --fg-faint: #7b838c;
+  --border: #474d54;
+  --border-strong: #5d646d;
+  --md-accent: #e0e0e0;
+  --md-heading-color: #dedede;
+  --md-heading-font: "Lucida Grande", "Corbel", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --md-muted: #9da2a6;
+  --md-panel-bg: #333333;
+  --md-panel-border: #474d54;
+  --md-quote-bg: transparent;
+  --md-quote-border: #474d54;
+  --editor-quote-bar: 2px;
+  --md-code-bg: #333333;
+  --md-code-fg: #d4dadf;
+  --md-code-keyword: #f28b82;
+  --md-code-string: #a5d6a7;
+  --md-code-number: #81d4fa;
+  --md-code-comment: #8b949e;
+  --md-component-radius: 0px;
+  --selection: rgba(74, 137, 220, 0.45);
+  --mark-bg: #d3d40e;
+  --mark-fg: #1a1a1a;
+  background: #363b40;
+}
+
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host {
+  background: #363b40;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-editor {
+  background: #363b40;
+}
+
+/* Generous centered reading column for Night */
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  max-width: min(1260px, 100%);
+  padding: 36px 0 96px;
+  color: #b8bfc6;
+  caret-color: #dedede;
+}
+
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
+  font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.65;
+}
+
+/* Official Night Headings: H1 normal weight 2.4em; H2 bold 1.63em; H3 bold 1.17em; H4 white normal */
+html[data-md-theme] .editor-host.editor-host .cm-md-h1,
+html[data-md-theme] .editor-host.editor-host .cm-md-h2,
+html[data-md-theme] .editor-host.editor-host .cm-md-h3,
+html[data-md-theme] .editor-host.editor-host .cm-md-h5 {
+  font-family: "Lucida Grande", "Corbel", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #dedede;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h1 {
+  font-size: 2.35em;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h2 {
+  font-size: 1.63em;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h3 {
+  font-size: 1.18em;
+  font-weight: 700;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h4,
+html[data-md-theme] .editor-host.editor-host .cm-md-h6 {
+  color: #ffffff;
+  font-weight: 400;
+}
+
+/* Official Night Links: #e0e0e0 underlined */
+html[data-md-theme] .editor-host.editor-host .cm-md-link,
+html[data-md-theme] .editor-host.editor-host .md-table-link {
+  color: #e0e0e0;
+  text-decoration: underline;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-link:hover,
+html[data-md-theme] .editor-host.editor-host .md-table-link:hover {
+  color: #ffffff;
+}
+
+/* Official Night Table: solid 1px #474d54 bordered grid on #363B40 canvas, bold #DEDEDE th */
+html[data-md-theme] .editor-host.editor-host .md-table-body {
+  border: 1px solid #474d54;
+  border-radius: 0;
+  background: #363b40;
+  box-shadow: none;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget table {
+  border-collapse: collapse;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: transparent;
+  color: #dedede;
+  font-weight: 700;
+  border-right: 1px solid #474d54;
+  border-bottom: 1px solid #474d54;
+  padding: 6px 10px;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  color: #b8bfc6;
+  border-right: 1px solid #474d54;
+  border-bottom: 1px solid #474d54;
+  padding: 6px 10px;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget th:last-child,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td:last-child {
+  border-right: 0;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tr:last-child td {
+  border-bottom: 0;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td {
+  background: transparent;
+}
+
+/* Official Night Inline Code & Code Block */
+html[data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: rgba(0, 0, 0, 0.14);
+  color: #d6dde4;
+  border: 0;
+  border-radius: 2px;
+  padding: 2px 5px;
+  font-size: 0.875em;
+}
+html[data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #333333;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-md-theme] .editor-host.editor-host .md-codeblock-gutter {
+  border-right: 0;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-blockquote {
+  color: #9da2a6;
+  background: transparent;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-bullet-list:not(.md-task-item)::before {
+  content: "▪";
+  font-size: 0.8em;
+  color: #8f98a2;
+}
+html[data-md-theme] .editor-host.editor-host .md-hr-line {
+  height: 2px;
+  background: #474d54;
+}

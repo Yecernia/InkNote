@@ -1,0 +1,240 @@
+/* ============================================================
+   Newsprint Theme for InkNote — Faithful to Official Typora newsprint.css
+   Usage: Settings -> Appearance -> Custom CSS -> select newsprint.css
+   ============================================================ */
+
+html[data-md-theme] .editor-host.editor-host {
+  --md-accent: #065588;
+  --md-heading-color: #1f0909;
+  --md-heading-font: "PT Serif", "Times New Roman", "Songti SC", "STSong", "Noto Serif SC", "SimSun", Times, serif;
+  --md-muted: #656565;
+  --md-panel-bg: #dadada;
+  --md-panel-border: #c5c5c5;
+  --md-quote-bg: transparent;
+  --md-quote-border: #bababa;
+  --editor-quote-bar: 5px;
+  --md-code-bg: #dadada;
+  --md-code-fg: #1f0909;
+  --md-code-keyword: #8c2d19;
+  --md-code-string: #2c5e3b;
+  --md-code-number: #065588;
+  --md-code-comment: #6e6860;
+  --md-component-radius: 0px;
+  --selection: rgba(32, 43, 51, 0.32);
+  background: #f3f2ee;
+}
+
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host {
+  --md-accent: #74b0d9;
+  --md-heading-color: #f0eae0;
+  --md-muted: #a39b8e;
+  --md-panel-bg: #322e2a;
+  --md-panel-border: #47423c;
+  --md-quote-border: #6e675d;
+  --md-code-bg: #2d2926;
+  --md-code-fg: #e2dcd2;
+  --md-code-keyword: #e0826d;
+  --md-code-string: #90c49b;
+  --md-code-number: #7dbbe6;
+  --md-code-comment: #8a8277;
+  background: #201e1c;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-editor {
+  background: #f3f2ee;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-editor {
+  background: #201e1c;
+}
+
+/* Generous centered editorial column for Newsprint */
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  max-width: min(1180px, 100%);
+  padding: 40px 0 96px;
+  color: #1f0909;
+  caret-color: #1f0909;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  color: #e2dcd2;
+  caret-color: #e2dcd2;
+}
+
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
+  font-family: "PT Serif", "Times New Roman", "Songti SC", "STSong", "Noto Serif SC", "SimSun", Times, serif;
+  font-size: clamp(15px, calc(var(--editor-render-font-size, 15px) * 1.07), 22px);
+  line-height: 1.65;
+}
+
+/* Official Newsprint Headings: H1 is NORMAL weight with thin #c5c5c5 bottom rule; H2 is bold 1.3125em */
+html[data-md-theme] .editor-host.editor-host .cm-md-h1,
+html[data-md-theme] .editor-host.editor-host .cm-md-h2,
+html[data-md-theme] .editor-host.editor-host .cm-md-h3,
+html[data-md-theme] .editor-host.editor-host .cm-md-h4,
+html[data-md-theme] .editor-host.editor-host .cm-md-h5,
+html[data-md-theme] .editor-host.editor-host .cm-md-h6 {
+  font-family: "PT Serif", "Times New Roman", "Songti SC", "STSong", "Noto Serif SC", "SimSun", Times, serif;
+  color: #1f0909;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h1,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h2,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h3,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h4,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h5,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h6 {
+  color: #f0eae0;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-md-h1 {
+  font-size: 1.875em;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1 {
+  padding-top: 1.1em;
+  padding-bottom: 0.45em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 0.55em;
+  background: #c5c5c5;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-heading-1::after {
+  background: #47423c;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h2 {
+  font-size: 1.3125em;
+  font-weight: 700;
+  line-height: 1.25;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h3 {
+  font-size: 1.3125em;
+  font-weight: 400;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h4 {
+  font-size: 1.125em;
+  font-weight: 700;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-2 {
+  padding-top: 1.35em;
+  padding-bottom: 0.3em;
+}
+
+/* Official Newsprint Links: #065588 */
+html[data-md-theme] .editor-host.editor-host .cm-md-link,
+html[data-md-theme] .editor-host.editor-host .md-table-link {
+  color: #065588;
+  text-decoration: none;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-link:hover,
+html[data-md-theme] .editor-host.editor-host .md-table-link:hover {
+  text-decoration: underline;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-link,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-link {
+  color: #74b0d9;
+}
+
+/* Official Newsprint Table:
+   - ZERO borders anywhere
+   - thead background #dadada
+   - tbody even rows #e8e7e7, odd rows transparent (#f3f2ee) */
+html[data-md-theme] .editor-host.editor-host .md-table-body {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget table {
+  border-collapse: collapse;
+  border: 0;
+  font-size: 1em;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: #dadada;
+  color: #1f0909;
+  font-weight: 700;
+  border: 0;
+  padding: 6px 10px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: #36322d;
+  color: #f0eae0;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  border: 0;
+  padding: 6px 10px;
+  vertical-align: top;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td {
+  background: #e8e7e7;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td {
+  background: #2a2723;
+}
+
+/* Official Newsprint Inline Code (body & tables): flat #dadada shading, no border, no radius */
+html[data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #dadada;
+  color: #1f0909;
+  border: 0;
+  border-radius: 0;
+  padding: 1px 4px;
+  font-size: 0.875em;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #35312c;
+  color: #ece6dc;
+}
+
+/* Official Newsprint Code Block: flat #dadada, no border, no radius */
+html[data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #dadada;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #2d2926;
+}
+html[data-md-theme] .editor-host.editor-host .md-codeblock-gutter {
+  border-right: 0;
+}
+
+/* Official Newsprint Blockquote: 5px solid #bababa, italic, #656565 */
+html[data-md-theme] .editor-host.editor-host .cm-line.md-blockquote {
+  color: #656565;
+  font-style: italic;
+  background: transparent;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-blockquote {
+  color: #ada598;
+}
+
+/* Official Newsprint Lists */
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item {
+  padding-top: 0.12em;
+  padding-bottom: 0.12em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-bullet-list:not(.md-task-item)::before,
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-ordered-list:not(.md-task-item)::before {
+  color: #1f0909;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-bullet-list:not(.md-task-item)::before,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-ordered-list:not(.md-task-item)::before {
+  color: #d8d1c7;
+}
+
+html[data-md-theme] .editor-host.editor-host .md-hr-line {
+  background: #c5c5c5;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-hr-line {
+  background: #47423c;
+}

@@ -1,0 +1,172 @@
+/* ============================================================
+   Lapis (青金) Theme for InkNote — Inspired by typora-theme-lapis
+   Usage: Settings -> Appearance -> Custom CSS -> select lapis.css
+   ============================================================ */
+
+html[data-md-theme] .editor-host.editor-host {
+  --md-accent: #4870ac;
+  --md-heading-color: #36598a;
+  --md-heading-font: "Source Han Sans SC", "PingFang SC", "Segoe UI", "Microsoft YaHei", sans-serif;
+  --md-muted: #647182;
+  --md-panel-bg: #f3f6fa;
+  --md-panel-border: #dce4ef;
+  --md-quote-bg: #f4f7fb;
+  --md-quote-border: #4870ac;
+  --editor-quote-bar: 4px;
+  --md-code-bg: #f6f8fb;
+  --md-code-fg: #2b3440;
+  --md-code-keyword: #3b5998;
+  --md-code-string: #2d7a64;
+  --md-code-number: #b45309;
+  --md-code-comment: #8592a6;
+  --md-component-radius: 6px;
+  background: #ffffff;
+}
+
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host {
+  --md-accent: #7aa2f7;
+  --md-heading-color: #7ea8e6;
+  --md-muted: #8f9eb3;
+  --md-panel-bg: #212834;
+  --md-panel-border: #313b4c;
+  --md-quote-bg: #1e2531;
+  --md-quote-border: #6a93d4;
+  --md-code-bg: #1f2631;
+  --md-code-fg: #d9e1ec;
+  --md-code-keyword: #82aaff;
+  --md-code-string: #80cbc4;
+  --md-code-number: #f7b872;
+  --md-code-comment: #6e7d94;
+  background: #191e26;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-editor { background: #ffffff; }
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-editor { background: #191e26; }
+
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  max-width: min(1260px, 100%);
+  padding: 36px 0 96px;
+  color: #2b323b;
+  caret-color: #2b323b;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  color: #d9e1ec;
+  caret-color: #d9e1ec;
+}
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
+  font-family: "Source Han Serif SC", "Noto Serif SC", "PingFang SC", "Segoe UI", "Microsoft YaHei", sans-serif;
+  line-height: 1.78;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-md-h1,
+html[data-md-theme] .editor-host.editor-host .cm-md-h2,
+html[data-md-theme] .editor-host.editor-host .cm-md-h3 {
+  font-family: "Source Han Sans SC", "PingFang SC", "Segoe UI", "Microsoft YaHei", sans-serif;
+  color: #36598a;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h1,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h2,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h3 {
+  color: #7ea8e6;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1 { padding-top: 1.15em; padding-bottom: 0.3em; }
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin-top: 0.34em;
+  border-radius: 2px;
+  background: var(--md-accent);
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-2 {
+  padding-top: 1.05em;
+  padding-bottom: 0.18em;
+  padding-left: calc(var(--editor-padding-x) + 12px);
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-2::before {
+  content: "";
+  position: absolute;
+  left: var(--editor-padding-x);
+  top: 1.24em;
+  bottom: 0.28em;
+  width: 4px;
+  border-radius: 2px;
+  background: var(--md-accent);
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-line.md-blockquote {
+  color: #516075;
+  background: linear-gradient(90deg, transparent var(--editor-padding-x), var(--md-quote-bg) var(--editor-padding-x), var(--md-quote-bg) calc(100% - var(--editor-padding-x)), transparent calc(100% - var(--editor-padding-x)));
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-blockquote { color: #a2b1c6; }
+
+html[data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #eef3f9;
+  color: #315485;
+  border: 0;
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #252e3d;
+  color: #9ec0f5;
+}
+
+/* Lapis crisp blue-tinted table */
+html[data-md-theme] .editor-host.editor-host .md-table-body {
+  border: 1px solid #dce4ef;
+  border-radius: 6px;
+  background: #ffffff;
+  box-shadow: none;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-body {
+  border-color: #313b4c;
+  background: #191e26;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: #eef3f9;
+  color: #36598a;
+  font-weight: 650;
+  border-right: 1px solid #dce4ef;
+  border-bottom: 1px solid #c9d6e8;
+  padding: 9px 13px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: #222a37;
+  color: #8ab4f8;
+  border-color: #313b4c;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  border-right: 1px solid #e6edf5;
+  border-bottom: 1px solid #e6edf5;
+  padding: 8px 13px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  border-color: #2a3342;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget th:last-child,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td:last-child { border-right: 0; }
+html[data-md-theme] .editor-host.editor-host .md-table-widget tr:last-child td { border-bottom: 0; }
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td { background: #f8fafd; }
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td { background: #1e2430; }
+
+html[data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #f6f8fb;
+  border: 1px solid #dce4ef;
+  border-radius: 6px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #1f2631;
+  border-color: #313b4c;
+}
+html[data-md-theme] .editor-host.editor-host .md-hr-line {
+  background: linear-gradient(90deg, transparent, #c7d5e8 15%, #c7d5e8 85%, transparent);
+}

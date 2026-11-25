@@ -1,0 +1,198 @@
+/* ============================================================
+   Whitey Theme for InkNote — Faithful to Official Typora whitey.css
+   Usage: Settings -> Appearance -> Custom CSS -> select whitey.css
+   ============================================================ */
+
+html[data-md-theme] .editor-host.editor-host {
+  --md-accent: #2484c1;
+  --md-heading-color: #333333;
+  --md-heading-font: "Vollkorn", Palatino, Georgia, "Songti SC", "STSong", "Noto Serif SC", "SimSun", Times, serif;
+  --md-muted: #777777;
+  --md-panel-bg: #f8f8f8;
+  --md-panel-border: #dddddd;
+  --md-quote-bg: transparent;
+  --md-quote-border: #dddddd;
+  --editor-quote-bar: 1px;
+  --md-code-bg: #ffffff;
+  --md-code-fg: #333333;
+  --md-code-keyword: #2484c1;
+  --md-code-string: #3b7a57;
+  --md-code-number: #8c4a27;
+  --md-code-comment: #999999;
+  --md-component-radius: 0px;
+  background: #fefefe;
+}
+
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host {
+  --md-accent: #5cb0e5;
+  --md-heading-color: #eef0f3;
+  --md-muted: #9aa0a8;
+  --md-panel-bg: #242629;
+  --md-panel-border: #3b3f45;
+  --md-quote-border: #4b5058;
+  --md-code-bg: #1f2124;
+  --md-code-fg: #dcdfe4;
+  --md-code-keyword: #6ab6ea;
+  --md-code-string: #8bc79a;
+  --md-code-number: #e0a875;
+  --md-code-comment: #7f8690;
+  background: #1c1d1f;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-editor {
+  background: #fefefe;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-editor {
+  background: #1c1d1f;
+}
+
+/* Generous centered book page for Whitey */
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  max-width: min(1180px, 100%);
+  padding: 40px 0 96px;
+  color: #333333;
+  caret-color: #333333;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  color: #dcdfe4;
+  caret-color: #dcdfe4;
+}
+
+/* Official Whitey serif typography (Vollkorn / Palatino / Songti) */
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
+  font-family: "Vollkorn", Palatino, Georgia, "Songti SC", "STSong", "Noto Serif SC", "SimSun", Times, serif;
+  font-size: clamp(16px, calc(var(--editor-render-font-size, 15px) * 1.12), 23px);
+  line-height: 1.65;
+}
+
+/* Official Whitey centered book headings: H1/H2/H3 centered, H2 has 100px centered hairline, H3 italic */
+html[data-md-theme] .editor-host.editor-host .cm-md-h1,
+html[data-md-theme] .editor-host.editor-host .cm-md-h2,
+html[data-md-theme] .editor-host.editor-host .cm-md-h3,
+html[data-md-theme] .editor-host.editor-host .cm-md-h4 {
+  font-family: "Vollkorn", Palatino, Georgia, "Songti SC", "STSong", "Noto Serif SC", "SimSun", Times, serif;
+  font-weight: 400;
+  color: #333333;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h1,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h2,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h3,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-h4 {
+  color: #eef0f3;
+}
+html[data-md-theme] .editor-host.editor-host .cm-md-h1 { font-size: 2.55em; }
+html[data-md-theme] .editor-host.editor-host .cm-md-h2 { font-size: 1.62em; }
+html[data-md-theme] .editor-host.editor-host .cm-md-h3 { font-size: 1.3em; font-style: italic; }
+
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1,
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-2,
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-3 {
+  text-align: center;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1 {
+  padding-top: 1.1em;
+  padding-bottom: 0.35em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-2 {
+  padding-top: 1.25em;
+  padding-bottom: 0.35em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-2::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 1px;
+  margin: 0.4em auto 0;
+  background: #2f2f2f;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-heading-2::after {
+  background: #9aa0a8;
+}
+
+/* Official Whitey square bullets */
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-bullet-list:not(.md-task-item)::before {
+  content: "▪";
+  font-size: 0.85em;
+}
+
+/* Official Whitey Links: #2484c1 */
+html[data-md-theme] .editor-host.editor-host .cm-md-link,
+html[data-md-theme] .editor-host.editor-host .md-table-link {
+  color: #2484c1;
+  text-decoration: none;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-link,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-link {
+  color: #5cb0e5;
+}
+
+/* Official Whitey Table: clean horizontal #ddd dividers, no outer box, no vertical lines, no zebra */
+html[data-md-theme] .editor-host.editor-host .md-table-body {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget table {
+  border-collapse: collapse;
+  border: 0;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: transparent;
+  font-weight: 700;
+  border: 0;
+  border-bottom: 1px solid #dddddd;
+  padding: 9px 10px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  border-bottom-color: #3f444b;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid #dddddd;
+  padding: 9px 10px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  border-top-color: #353940;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td {
+  background: transparent;
+}
+
+/* Official Whitey Code */
+html[data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  font-family: Consolas, Menlo, Monaco, monospace;
+  background: #ffffff;
+  color: #333333;
+  border: 0;
+  border-radius: 0;
+  padding: 0 2px;
+  font-size: 0.9em;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #242629;
+  color: #dcdfe4;
+}
+html[data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 0;
+  box-shadow: none;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #1f2124;
+  border: 1px solid #3b3f45;
+}
+html[data-md-theme] .editor-host.editor-host .md-hr-line {
+  background: #dddddd;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-hr-line {
+  background: #3b3f45;
+}

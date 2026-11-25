@@ -1,0 +1,150 @@
+/* ============================================================
+   GitHub Theme for InkNote — Faithful to Official Typora github.css
+   Usage: Settings -> Appearance -> Custom CSS -> select github-typora.css
+   ============================================================ */
+
+html[data-md-theme] .editor-host.editor-host {
+  --md-accent: #4183c4;
+  --md-heading-color: #333333;
+  --md-heading-font: "Open Sans", "Clear Sans", "Helvetica Neue", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --md-muted: #777777;
+  --md-panel-bg: #f8f8f8;
+  --md-panel-border: #dfe2e5;
+  --md-quote-bg: transparent;
+  --md-quote-border: #dfe2e5;
+  --editor-quote-bar: 4px;
+  --md-code-bg: #f8f8f8;
+  --md-code-fg: #333333;
+  --md-component-radius: 3px;
+  background: #ffffff;
+}
+
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host {
+  --md-accent: #58a6ff;
+  --md-heading-color: #f0f6fc;
+  --md-muted: #8b949e;
+  --md-panel-bg: #161b22;
+  --md-panel-border: #30363d;
+  --md-quote-border: #30363d;
+  --md-code-bg: #161b22;
+  --md-code-fg: #e6edf3;
+  background: #0d1117;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-editor {
+  background: #ffffff;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-editor {
+  background: #0d1117;
+}
+
+/* Generous centered reading column for GitHub */
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  max-width: min(1260px, 100%);
+  padding: 36px 0 96px;
+  color: #333333;
+  caret-color: #333333;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--preview .cm-content {
+  color: #e6edf3;
+  caret-color: #e6edf3;
+}
+
+html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
+  font-family: "Open Sans", "Clear Sans", "Helvetica Neue", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.65;
+}
+
+html[data-md-theme] .editor-host.editor-host .cm-md-h1 { font-size: 2.2em; font-weight: 700; }
+html[data-md-theme] .editor-host.editor-host .cm-md-h2 { font-size: 1.7em; font-weight: 700; }
+html[data-md-theme] .editor-host.editor-host .cm-md-h3 { font-size: 1.45em; font-weight: 700; }
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1,
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-2 {
+  padding-bottom: 0.32em;
+}
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1::after,
+html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-2::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 0.3em;
+  background: #eeeeee;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-heading-1::after,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-heading-2::after {
+  background: #30363d;
+}
+
+/* Official Typora GitHub Table: #dfe2e5 grid + #f8f8f8 thead & even rows */
+html[data-md-theme] .editor-host.editor-host .md-table-body {
+  border: 1px solid #dfe2e5;
+  border-radius: 0;
+  background: #ffffff;
+  box-shadow: none;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-body {
+  border-color: #30363d;
+  background: #0d1117;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: #f8f8f8;
+  font-weight: 700;
+  border-right: 1px solid #dfe2e5;
+  border-bottom: 1px solid #dfe2e5;
+  padding: 6px 13px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget thead th {
+  background: #161b22;
+  border-color: #30363d;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  background: transparent;
+  border-right: 1px solid #dfe2e5;
+  border-bottom: 1px solid #dfe2e5;
+  padding: 6px 13px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody td {
+  border-color: #30363d;
+}
+html[data-md-theme] .editor-host.editor-host .md-table-widget th:last-child,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td:last-child { border-right: 0; }
+html[data-md-theme] .editor-host.editor-host .md-table-widget tr:last-child td { border-bottom: 0; }
+html[data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td {
+  background: #f8f8f8;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget tbody tr:nth-child(2n) td {
+  background: #161b22;
+}
+
+/* Official Typora GitHub Inline Code & Code Block */
+html[data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: #f3f4f4;
+  border: 1px solid #e7eaed;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-size: 0.9em;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-md-code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget td code,
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-table-widget th code {
+  background: rgba(110, 118, 129, 0.35);
+  border-color: #30363d;
+}
+html[data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #f8f8f8;
+  border: 1px solid #e7eaed;
+  border-radius: 3px;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-box {
+  background: #161b22;
+  border-color: #30363d;
+}
+html[data-md-theme] .editor-host.editor-host .md-hr-line {
+  height: 2px;
+  background: #e7e7e7;
+}
+html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-hr-line {
+  background: #30363d;
+}
