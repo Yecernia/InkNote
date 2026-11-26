@@ -61,8 +61,8 @@ html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--pre
 
 html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
   font-family: "PT Serif", "Times New Roman", "Songti SC", "STSong", "Noto Serif SC", "SimSun", Times, serif;
-  font-size: clamp(15px, calc(var(--editor-render-font-size, 15px) * 1.07), 22px);
-  line-height: 1.65;
+  font-size: clamp(16.5px, calc(var(--editor-render-font-size, 15px) * 1.15), 24px);
+  line-height: max(var(--editor-line-height, 1.75), 1.84);
 }
 
 /* Official Newsprint Headings: H1 is NORMAL weight with thin #c5c5c5 bottom rule; H2 is bold 1.3125em */
@@ -220,8 +220,8 @@ html[data-theme="dark"][data-md-theme] .editor-host.editor-host .cm-line.md-bloc
 
 /* Official Newsprint Lists */
 html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item {
-  padding-top: 0.12em;
-  padding-bottom: 0.12em;
+  padding-top: 0.16em;
+  padding-bottom: 0.16em;
 }
 html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-bullet-list:not(.md-task-item)::before,
 html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item.md-ordered-list:not(.md-task-item)::before {

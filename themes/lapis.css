@@ -55,8 +55,10 @@ html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--pre
 }
 html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
   font-family: "Source Han Serif SC", "Noto Serif SC", "PingFang SC", "Segoe UI", "Microsoft YaHei", sans-serif;
-  line-height: 1.78;
+  font-size: clamp(16px, calc(var(--editor-render-font-size, 15px) * 1.12), 23px);
+  line-height: max(var(--editor-line-height, 1.75), 1.82);
 }
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item { padding-top: 0.16em; padding-bottom: 0.16em; }
 
 html[data-md-theme] .editor-host.editor-host .cm-md-h1,
 html[data-md-theme] .editor-host.editor-host .cm-md-h2,

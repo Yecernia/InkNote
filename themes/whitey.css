@@ -61,8 +61,8 @@ html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--pre
 /* Official Whitey serif typography (Vollkorn / Palatino / Songti) */
 html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
   font-family: "Vollkorn", Palatino, Georgia, "Songti SC", "STSong", "Noto Serif SC", "SimSun", Times, serif;
-  font-size: clamp(16px, calc(var(--editor-render-font-size, 15px) * 1.12), 23px);
-  line-height: 1.65;
+  font-size: clamp(16.5px, calc(var(--editor-render-font-size, 15px) * 1.15), 24px);
+  line-height: max(var(--editor-line-height, 1.75), 1.82);
 }
 
 /* Official Whitey centered book headings: H1/H2/H3 centered, H2 has 100px centered hairline, H3 italic */

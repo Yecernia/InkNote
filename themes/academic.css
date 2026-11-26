@@ -54,9 +54,10 @@ html[data-theme="dark"][data-md-theme] .editor-host.editor-host.editor-host--pre
 }
 html[data-md-theme] .editor-host.editor-host.editor-host--preview .cm-scroller {
   font-family: "STIX Two Text", "Cambria", "Georgia", "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
-  font-size: clamp(15.5px, calc(var(--editor-render-font-size, 15px) * 1.07), 22px);
-  line-height: 1.85;
+  font-size: clamp(16.5px, calc(var(--editor-render-font-size, 15px) * 1.15), 24px);
+  line-height: max(var(--editor-line-height, 1.75), 1.85);
 }
+html[data-md-theme] .editor-host.editor-host .cm-line.md-list-item { padding-top: 0.16em; padding-bottom: 0.16em; }
 
 html[data-md-theme] .editor-host.editor-host .cm-md-h1 { font-size: 2.05em; font-weight: 700; letter-spacing: 0.01em; }
 html[data-md-theme] .editor-host.editor-host .cm-line.md-heading-1 { text-align: center; padding-top: 1.25em; padding-bottom: 0.35em; }
