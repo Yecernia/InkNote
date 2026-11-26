@@ -178,21 +178,6 @@ function normalizeLang(info: string): string {
   const raw = info.trim().split(/\s+/)[0]?.toLowerCase() ?? "";
   if (raw === "tsx") return "typescript";
   if (raw === "jsx") return "javascript";
-  if (raw === "sh" || raw === "shell" || raw === "zsh") return "bash";
-  if (raw === "yml") return "yaml";
-  if (raw === "py") return "python";
-  if (raw === "js") return "javascript";
-  if (raw === "ts") return "typescript";
-  if (raw === "rs") return "rust";
-  if (raw === "rb") return "ruby";
-  if (raw === "kt") return "kotlin";
-  if (raw === "cs") return "csharp";
-  if (raw === "md") return "markdown";
-  if (raw === "docker") return "dockerfile";
-  if (raw === "ps1" || raw === "pwsh" || raw === "ps") return "powershell";
-  if (raw === "bat" || raw === "cmd") return "dos";
-  if (raw === "proto") return "protobuf";
-  if (raw === "tex") return "latex";
   return raw;
 }
 
