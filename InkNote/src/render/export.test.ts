@@ -65,4 +65,39 @@ describe("markdownToBodyHtml", () => {
 
     expect(html).toContain(`src="${dataUrl}"`);
   });
+
+  it("preserves backgrounds, print layout, and theme-specific table/code styles for PDF export across all themes", async () => {
+    const sample = "# Title\n\n| A | B |\n| --- | --- |\n| `foo` | bar |\n\n```bash\ndocker run -d --name app --memory 128m\n```";
+    const newsprint = await markdownToHtml(sample, "light", "zh", null, false, "newsprint");
+    const night = await markdownToHtml(sample, "light", "zh", null, false, "night");
+    const whitey = await markdownToHtml(sample, "light", "zh", null, false, "whitey");
+
+    // Print color fidelity and wrapping for PDF export
+    expect(newsprint).toContain("print-color-adjust: exact !important");
+    expect(newsprint).toContain("@page { background: #f3f2ee; }");
+    expect(newsprint).toContain("white-space: pre-wrap");
+    expect(newsprint).toContain("thead th { background:#dadada;");
+    expect(newsprint).toContain("pre { background:#eae7df; border:1px solid #d5d0c4;");
+
+    // Enhanced bash CLI flag & builtin highlighting in exported HTML/PDF
+    expect(newsprint).toContain("hljs-built_in");
+    expect(newsprint).toContain("hljs-attr");
+    expect(newsprint).toContain("hljs-number");
+
+    // Night theme always exports dark surface + readable dark syntax colors
+    expect(night).toContain("@page { background: #363b40; }");
+    expect(night).toContain("--hljs-keyword:#f28b82");
+    expect(night).toContain("--doc-mark-fg:#1a1a1a");
+
+    // Whitey code blocks and inline code have visible surfaces
+    expect(whitey).toContain("pre { background:#fafafa; border:1px solid #dddddd;");
+  });
+
+  it("highlights extended languages like dockerfile and nginx in exported HTML", async () => {
+    const md = "```dockerfile\nFROM node:22-alpine\nRUN npm ci\n```\n\n```nginx\nserver { listen 80; }\n```";
+    const html = await markdownToBodyHtml(md);
+    expect(html).toContain("hljs-keyword");
+    expect(html).toContain("language-dockerfile");
+    expect(html).toContain("language-nginx");
+  });
 });
