@@ -240,23 +240,22 @@ html[data-md-theme] .editor-host.editor-host .cm-line.md-task-done::before {
   border-color: #333333;
 }
 
-/* Official Pixyll Code Block: crisp 1px #7a7a7a frame, square corners */
+/* Clean gutterless code block */
+html[data-md-theme] .editor-host.editor-host .md-codeblock-gutter {
+  display: none !important;
+}
 html[data-md-theme] .editor-host.editor-host .md-codeblock-box {
-  background: #ffffff;
-  border: 1px solid #7a7a7a;
-  border-radius: 0;
+  background: #fafafa;
+  border: 1px solid #e2e2e2;
+  border-radius: 4px;
   box-shadow: none;
 }
 html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-box {
   background: #23262c;
-  border: 1px solid #555c68;
+  border: 1px solid #363b44;
 }
-html[data-md-theme] .editor-host.editor-host .md-codeblock-gutter {
-  border-right: 1px solid #e2e2e2;
-  padding: 34px 10px 14px 14px;
-}
-html[data-theme="dark"][data-md-theme] .editor-host.editor-host .md-codeblock-gutter {
-  border-right: 1px solid #3a404a;
+html[data-md-theme] .editor-host.editor-host .md-codeblock-widget code {
+  padding: 36px 18px 16px 18px;
 }
 
 html[data-md-theme] .editor-host.editor-host .md-hr-line {

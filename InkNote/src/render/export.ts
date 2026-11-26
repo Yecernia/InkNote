@@ -32,10 +32,12 @@ const BASE_CSS = `
   pre { background: var(--doc-panel); border: 1px solid var(--doc-border); padding: 1em; border-radius: var(--doc-radius); overflow-x: auto; }
   pre code.hljs { background: transparent; padding: 0; }
   .hljs-comment, .hljs-quote { color: #6e7781; font-style: italic; }
-  .hljs-keyword, .hljs-selector-tag { color: #cf222e; }
-  .hljs-string, .hljs-addition { color: #0a3069; }
-  .hljs-number, .hljs-literal { color: #0550ae; }
-  .hljs-title, .hljs-type, .hljs-built_in { color: #8250df; }
+  .hljs-keyword, .hljs-selector-tag, .hljs-doctag, .hljs-deletion { color: #cf222e; }
+  .hljs-string, .hljs-regexp, .hljs-addition { color: #0a3069; }
+  .hljs-number, .hljs-literal, .hljs-symbol, .hljs-attr, .hljs-attribute, .hljs-property, .hljs-params { color: #0550ae; }
+  .hljs-title, .hljs-function, .hljs-section, .hljs-name, .hljs-tag, .hljs-meta { color: #8250df; }
+  .hljs-type, .hljs-built_in, .hljs-variable, .hljs-template-variable { color: #953800; }
+  .hljs-operator { color: #57606a; }
   code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; }
   :not(pre) > code { background: var(--doc-panel); border-radius: 4px; padding: .14em .4em; }
   a { color: var(--doc-accent); }

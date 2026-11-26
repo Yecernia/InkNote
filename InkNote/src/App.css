@@ -1221,6 +1221,10 @@ html[data-theme="dark"] .file-tree .tree-filter-highlight {
   --md-code-string: var(--syntax-string);
   --md-code-number: var(--syntax-number);
   --md-code-comment: var(--syntax-comment);
+  --md-code-attr: var(--syntax-number);
+  --md-code-title: var(--syntax-function);
+  --md-code-builtin: var(--syntax-type);
+  --md-code-operator: var(--syntax-operator);
   --md-quote-border: var(--md-accent);
   --font-mono: var(--editor-mono-font, ui-monospace, Consolas, monospace);
   user-select: text;
@@ -1609,16 +1613,7 @@ html:not([data-theme="dark"]) .md-codeblock-widget code::selection {
   box-shadow: var(--md-component-shadow);
 }
 .md-codeblock-gutter {
-  flex: none;
-  padding: 34px 10px 12px 14px;
-  text-align: right;
-  white-space: pre;
-  user-select: none;
-  color: var(--md-code-comment);
-  font-family: var(--font-mono);
-  font-size: 0.85em;
-  line-height: var(--codeblock-line-height);
-  border-right: 1px solid var(--md-panel-border);
+  display: none !important;
 }
 .md-codeblock-widget pre {
   flex: 1 1 0;
@@ -1635,12 +1630,12 @@ html:not([data-theme="dark"]) .md-codeblock-widget code::selection {
   box-sizing: border-box;
   width: max-content;
   min-width: 100%;
-  padding: 34px 16px 12px;
+  padding: 36px 18px 16px 18px;
   min-height: 1.6em;
   outline: none;
   white-space: pre;
   font-family: var(--font-mono);
-  font-size: 0.85em;
+  font-size: 0.86em;
   line-height: var(--codeblock-line-height);
   color: var(--md-code-fg);
 }
@@ -1657,14 +1652,9 @@ html[data-md-theme="github"] .md-codeblock-box {
   border: 0;
   border-radius: 6px;
 }
-html[data-md-theme="github"] .md-codeblock-gutter {
-  display: block;
-  padding: 34px 0 16px 16px;
-  border-right: 0;
-}
 html[data-md-theme="github"] .md-codeblock-widget code {
-  padding: 34px 16px 16px 12px;
-  font-size: 0.85em;
+  padding: 36px 18px 16px 18px;
+  font-size: 0.86em;
 }
 html[data-md-theme="github"] .cm-md-code {
   padding: 0.2em 0.4em;
@@ -1682,13 +1672,8 @@ html[data-md-theme="vue"] .md-codeblock-box {
   border: 0;
   border-radius: 8px;
 }
-html[data-md-theme="vue"] .md-codeblock-gutter {
-  display: block;
-  padding: 36px 0 18px 18px;
-  border-right: 0;
-}
 html[data-md-theme="vue"] .md-codeblock-widget code {
-  padding: 36px 20px 18px 12px;
+  padding: 36px 20px 18px 20px;
 }
 .md-codeblock-lang {
   max-width: 132px;
@@ -1707,25 +1692,59 @@ html[data-md-theme="vue"] .md-codeblock-widget code {
 .md-codeblock-lang:hover { color: var(--fg); background: var(--md-panel-bg); }
 .md-codeblock-lang:focus { outline: none; box-shadow: none; }
 
-/* highlight.js 主题（跟随应用色板） */
+/* highlight.js 完整语义高亮（覆盖所有常见语言 Token） */
 .hljs { color: var(--fg); background: transparent; }
 .hljs-comment, .hljs-quote { color: var(--syntax-comment); font-style: italic; }
-.hljs-keyword, .hljs-selector-tag { color: var(--syntax-keyword); }
-.hljs-string, .hljs-addition { color: var(--syntax-string); }
-.hljs-number, .hljs-literal { color: var(--syntax-number); }
-.hljs-type, .hljs-title { color: var(--syntax-type); }
-.hljs-function, .hljs-built_in { color: var(--syntax-function); }
-.hljs-meta { color: var(--syntax-meta); }
-.hljs-operator { color: var(--syntax-operator); }
+.hljs-keyword, .hljs-selector-tag, .hljs-doctag, .hljs-template-tag { color: var(--syntax-keyword); }
+.hljs-string, .hljs-regexp, .hljs-addition, .hljs-selector-attr, .hljs-selector-pseudo { color: var(--syntax-string); }
+.hljs-number, .hljs-literal, .hljs-symbol, .hljs-bullet, .hljs-link { color: var(--syntax-number); }
+.hljs-attr, .hljs-attribute, .hljs-property, .hljs-params, .hljs-selector-class, .hljs-selector-id { color: var(--syntax-number); }
+.hljs-type, .hljs-built_in, .hljs-variable, .hljs-template-variable { color: var(--syntax-type); }
+.hljs-title, .hljs-title.class_, .hljs-title.function_, .hljs-function, .hljs-section, .hljs-name, .hljs-tag { color: var(--syntax-function); }
+.hljs-meta, .hljs-subst { color: var(--syntax-meta); }
+.hljs-operator, .hljs-punctuation { color: var(--syntax-operator); }
+.hljs-deletion { color: var(--syntax-keyword); }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 600; }
+
 .md-codeblock-widget .hljs { color: var(--md-code-fg); }
 .md-codeblock-widget .hljs-comment,
-.md-codeblock-widget .hljs-quote { color: var(--md-code-comment); }
+.md-codeblock-widget .hljs-quote { color: var(--md-code-comment); font-style: italic; }
 .md-codeblock-widget .hljs-keyword,
-.md-codeblock-widget .hljs-selector-tag { color: var(--md-code-keyword); }
+.md-codeblock-widget .hljs-selector-tag,
+.md-codeblock-widget .hljs-doctag,
+.md-codeblock-widget .hljs-template-tag,
+.md-codeblock-widget .hljs-deletion { color: var(--md-code-keyword); }
 .md-codeblock-widget .hljs-string,
-.md-codeblock-widget .hljs-addition { color: var(--md-code-string); }
+.md-codeblock-widget .hljs-regexp,
+.md-codeblock-widget .hljs-addition,
+.md-codeblock-widget .hljs-selector-attr,
+.md-codeblock-widget .hljs-selector-pseudo { color: var(--md-code-string); }
 .md-codeblock-widget .hljs-number,
-.md-codeblock-widget .hljs-literal { color: var(--md-code-number); }
+.md-codeblock-widget .hljs-literal,
+.md-codeblock-widget .hljs-symbol,
+.md-codeblock-widget .hljs-bullet,
+.md-codeblock-widget .hljs-link { color: var(--md-code-number); }
+.md-codeblock-widget .hljs-attr,
+.md-codeblock-widget .hljs-attribute,
+.md-codeblock-widget .hljs-property,
+.md-codeblock-widget .hljs-params,
+.md-codeblock-widget .hljs-selector-class,
+.md-codeblock-widget .hljs-selector-id { color: var(--md-code-attr); }
+.md-codeblock-widget .hljs-title,
+.md-codeblock-widget .hljs-title.class_,
+.md-codeblock-widget .hljs-title.function_,
+.md-codeblock-widget .hljs-function,
+.md-codeblock-widget .hljs-section,
+.md-codeblock-widget .hljs-name,
+.md-codeblock-widget .hljs-tag { color: var(--md-code-title); }
+.md-codeblock-widget .hljs-built_in,
+.md-codeblock-widget .hljs-type,
+.md-codeblock-widget .hljs-variable,
+.md-codeblock-widget .hljs-template-variable,
+.md-codeblock-widget .hljs-meta,
+.md-codeblock-widget .hljs-subst { color: var(--md-code-builtin); }
+.md-codeblock-widget .hljs-operator { color: var(--md-code-operator); }
 
 /* 分割线 Widget：线是独立视觉节点，上下留白可分别映射到相邻源码空行。 */
 .md-hr-widget {

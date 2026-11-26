@@ -8,93 +8,191 @@ import {
   makePlainTextEditable,
   setCaretOffset,
 } from "./editableSource";
-import hljs from "highlight.js/lib/core";
-import bash from "highlight.js/lib/languages/bash";
-import css from "highlight.js/lib/languages/css";
-import java from "highlight.js/lib/languages/java";
-import javascript from "highlight.js/lib/languages/javascript";
-import json from "highlight.js/lib/languages/json";
-import markdown from "highlight.js/lib/languages/markdown";
-import python from "highlight.js/lib/languages/python";
-import rust from "highlight.js/lib/languages/rust";
-import sql from "highlight.js/lib/languages/sql";
-import typescript from "highlight.js/lib/languages/typescript";
-import xml from "highlight.js/lib/languages/xml";
-import yaml from "highlight.js/lib/languages/yaml";
-import cpp from "highlight.js/lib/languages/cpp";
-import csharp from "highlight.js/lib/languages/csharp";
-import go from "highlight.js/lib/languages/go";
-import php from "highlight.js/lib/languages/php";
-import ruby from "highlight.js/lib/languages/ruby";
-import diff from "highlight.js/lib/languages/diff";
-import ini from "highlight.js/lib/languages/ini";
+import hljs from "highlight.js/lib/common";
+import bashBase from "highlight.js/lib/languages/bash";
+import apache from "highlight.js/lib/languages/apache";
+import awk from "highlight.js/lib/languages/awk";
+import clojure from "highlight.js/lib/languages/clojure";
+import cmake from "highlight.js/lib/languages/cmake";
+import dart from "highlight.js/lib/languages/dart";
+import dns from "highlight.js/lib/languages/dns";
+import dockerfile from "highlight.js/lib/languages/dockerfile";
+import dos from "highlight.js/lib/languages/dos";
+import elixir from "highlight.js/lib/languages/elixir";
+import erlang from "highlight.js/lib/languages/erlang";
+import gradle from "highlight.js/lib/languages/gradle";
+import groovy from "highlight.js/lib/languages/groovy";
+import haskell from "highlight.js/lib/languages/haskell";
+import http from "highlight.js/lib/languages/http";
+import julia from "highlight.js/lib/languages/julia";
+import latex from "highlight.js/lib/languages/latex";
+import lisp from "highlight.js/lib/languages/lisp";
+import matlab from "highlight.js/lib/languages/matlab";
+import nginx from "highlight.js/lib/languages/nginx";
+import nix from "highlight.js/lib/languages/nix";
+import ocaml from "highlight.js/lib/languages/ocaml";
+import powershell from "highlight.js/lib/languages/powershell";
+import properties from "highlight.js/lib/languages/properties";
+import protobuf from "highlight.js/lib/languages/protobuf";
+import scala from "highlight.js/lib/languages/scala";
+import stylus from "highlight.js/lib/languages/stylus";
+import verilog from "highlight.js/lib/languages/verilog";
+import vim from "highlight.js/lib/languages/vim";
 import { getLocale, t } from "../../lib/i18n";
 
+const EXTRA_SHELL_BUILTINS = [
+  "sudo", "docker", "podman", "kubectl", "helm", "git", "curl", "wget", "ssh",
+  "scp", "rsync", "systemctl", "journalctl", "nginx", "redis-server", "redis-cli",
+  "mysql", "psql", "npm", "pnpm", "yarn", "npx", "node", "python", "python3",
+  "pip", "pip3", "java", "javac", "mvn", "gradle", "cargo", "rustc", "go",
+  "make", "cmake", "tar", "unzip", "chmod", "chown", "mkdir", "cp", "mv", "rm",
+  "ls", "cat", "head", "tail", "grep", "sed", "awk", "find", "xargs", "ps", "kill",
+];
+
+function enhancedBash(h: Parameters<typeof bashBase>[0]) {
+  const grammar = bashBase(h);
+  if (grammar.keywords && typeof grammar.keywords === "object" && !Array.isArray(grammar.keywords)) {
+    const existing = grammar.keywords.built_in;
+    if (Array.isArray(existing)) {
+      grammar.keywords.built_in = [...existing, ...EXTRA_SHELL_BUILTINS];
+    } else if (typeof existing === "string") {
+      grammar.keywords.built_in = `${existing} ${EXTRA_SHELL_BUILTINS.join(" ")}`;
+    }
+  }
+  if (Array.isArray(grammar.contains)) {
+    grammar.contains.push(
+      { className: "attr", begin: /(?:^|(?<=\s))--?[a-zA-Z][\w-]*/ },
+      { className: "number", begin: /\b\d+(?:\.\d+)?(?:[kKmMgGtT][bB]?)?\b/ },
+      { className: "operator", begin: /\\$/m },
+    );
+  }
+  return grammar;
+}
+
+hljs.registerLanguage("bash", enhancedBash);
+
 for (const [lang, mod] of [
-  ["bash", bash],
-  ["sh", bash],
-  ["shell", bash],
-  ["c", cpp],
-  ["cpp", cpp],
-  ["csharp", csharp],
-  ["cs", csharp],
-  ["css", css],
-  ["diff", diff],
-  ["go", go],
-  ["html", xml],
-  ["ini", ini],
-  ["toml", ini],
-  ["xml", xml],
-  ["java", java],
-  ["js", javascript],
-  ["javascript", javascript],
-  ["json", json],
-  ["md", markdown],
-  ["markdown", markdown],
-  ["php", php],
-  ["py", python],
-  ["python", python],
-  ["rb", ruby],
-  ["ruby", ruby],
-  ["rs", rust],
-  ["rust", rust],
-  ["sql", sql],
-  ["ts", typescript],
-  ["typescript", typescript],
-  ["yaml", yaml],
-  ["yml", yaml],
+  ["apache", apache],
+  ["awk", awk],
+  ["clojure", clojure],
+  ["cmake", cmake],
+  ["dart", dart],
+  ["dns", dns],
+  ["dockerfile", dockerfile],
+  ["dos", dos],
+  ["elixir", elixir],
+  ["erlang", erlang],
+  ["gradle", gradle],
+  ["groovy", groovy],
+  ["haskell", haskell],
+  ["http", http],
+  ["julia", julia],
+  ["latex", latex],
+  ["lisp", lisp],
+  ["matlab", matlab],
+  ["nginx", nginx],
+  ["nix", nix],
+  ["ocaml", ocaml],
+  ["powershell", powershell],
+  ["properties", properties],
+  ["protobuf", protobuf],
+  ["scala", scala],
+  ["stylus", stylus],
+  ["verilog", verilog],
+  ["vim", vim],
 ] as const) {
   if (!hljs.getLanguage(lang)) hljs.registerLanguage(lang, mod);
 }
 
-/** 语言下拉里的候选项（都是能真正高亮的） */
+hljs.registerAliases(["sh", "shell", "zsh"], { languageName: "bash" });
+hljs.registerAliases(["docker"], { languageName: "dockerfile" });
+hljs.registerAliases(["ps", "ps1", "pwsh"], { languageName: "powershell" });
+hljs.registerAliases(["bat", "cmd"], { languageName: "dos" });
+hljs.registerAliases(["env", "dotenv", "conf"], { languageName: "properties" });
+hljs.registerAliases(["nginxconf"], { languageName: "nginx" });
+hljs.registerAliases(["proto"], { languageName: "protobuf" });
+hljs.registerAliases(["tex"], { languageName: "latex" });
+hljs.registerAliases(["toml"], { languageName: "ini" });
+hljs.registerAliases(["vue", "svelte"], { languageName: "xml" });
+
+/** 语言下拉里的候选项（覆盖常用前后端、脚本与运维配置语言） */
 export const LANGUAGE_OPTIONS = [
-  "", "bash", "c", "cpp", "csharp", "css", "diff", "go", "html", "ini", "java",
-  "javascript", "json", "markdown", "mermaid", "php", "python", "ruby", "rust",
-  "sql", "toml", "typescript", "xml", "yaml",
+  "", "bash", "c", "cmake", "cpp", "csharp", "css", "dart", "diff", "dockerfile",
+  "dos", "go", "gradle", "graphql", "groovy", "html", "http", "ini", "java",
+  "javascript", "json", "kotlin", "latex", "less", "lua", "makefile", "markdown",
+  "mermaid", "nginx", "objectivec", "perl", "php", "powershell", "properties",
+  "protobuf", "python", "r", "ruby", "rust", "scala", "scss", "sql", "swift",
+  "toml", "typescript", "xml", "yaml",
 ];
 
 const LANGUAGE_LABELS: Record<string, string> = {
+  bash: "Bash",
+  c: "C",
+  cmake: "CMake",
   cpp: "C++",
   csharp: "C#",
-  javascript: "JavaScript",
-  typescript: "TypeScript",
-  json: "JSON",
-  html: "HTML",
   css: "CSS",
+  dart: "Dart",
+  diff: "Diff",
+  dockerfile: "Dockerfile",
+  dos: "Batch",
+  go: "Go",
+  gradle: "Gradle",
+  graphql: "GraphQL",
+  groovy: "Groovy",
+  html: "HTML",
+  http: "HTTP",
+  ini: "INI",
+  java: "Java",
+  javascript: "JavaScript",
+  json: "JSON",
+  kotlin: "Kotlin",
+  latex: "LaTeX",
+  less: "Less",
+  lua: "Lua",
+  makefile: "Makefile",
+  markdown: "Markdown",
+  mermaid: "Mermaid",
+  nginx: "Nginx",
+  objectivec: "Objective-C",
+  perl: "Perl",
+  php: "PHP",
+  powershell: "PowerShell",
+  properties: "Properties",
+  protobuf: "Protobuf",
+  python: "Python",
+  r: "R",
+  ruby: "Ruby",
+  rust: "Rust",
+  scala: "Scala",
+  scss: "SCSS",
   sql: "SQL",
+  swift: "Swift",
+  toml: "TOML",
+  typescript: "TypeScript",
   xml: "XML",
   yaml: "YAML",
-  toml: "TOML",
-  ini: "INI",
-  php: "PHP",
-  go: "Go",
 };
 
 function normalizeLang(info: string): string {
   const raw = info.trim().split(/\s+/)[0]?.toLowerCase() ?? "";
   if (raw === "tsx") return "typescript";
   if (raw === "jsx") return "javascript";
+  if (raw === "sh" || raw === "shell" || raw === "zsh") return "bash";
+  if (raw === "yml") return "yaml";
+  if (raw === "py") return "python";
+  if (raw === "js") return "javascript";
+  if (raw === "ts") return "typescript";
+  if (raw === "rs") return "rust";
+  if (raw === "rb") return "ruby";
+  if (raw === "kt") return "kotlin";
+  if (raw === "cs") return "csharp";
+  if (raw === "md") return "markdown";
+  if (raw === "docker") return "dockerfile";
+  if (raw === "ps1" || raw === "pwsh" || raw === "ps") return "powershell";
+  if (raw === "bat" || raw === "cmd") return "dos";
+  if (raw === "proto") return "protobuf";
+  if (raw === "tex") return "latex";
   return raw;
 }
 
